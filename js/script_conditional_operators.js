@@ -7,7 +7,7 @@ const getMathResult = (firstValue, secondValue) => {
     } else {
         result = firstValue+secondValue;
     };
-    console.log(result)
+    return result;
 };
 
 const getQuarterPoint = (x, y) => {
@@ -26,7 +26,7 @@ const getQuarterPoint = (x, y) => {
             quarterPoint = '4 quarter';
             break;
     }
-    console.log(quarterPoint);
+    return quarterPoint;
 };
 
 const getSumm = (firstValue, secondValue, thirdValue) => {

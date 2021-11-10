@@ -4,14 +4,37 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="css/style.css" rel="stylesheet">
+    <link href="https://cdn.rawgit.com/mochajs/mocha/2.2.5/mocha.css" rel="stylesheet" />
     <title>Test</title>
     <h1>Data Types</h1>
 </head>
 <body>
+    <h1 id="greeting">Hello World!</h1>
+    <input id="result" />
+    <button id="click-button" onclick="myFunction()">Add</button>
+    
+    <div id="mocha"></div>
+    <div id="messages"></div>
+    <div id="fixtures"></div>
+    <script src="https://cdn.rawgit.com/Automattic/expect.js/0.3.1/index.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Faker/2.2.2/faker.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mocha/8.0.1/mocha.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/chai/1.4.1/chai.js"></script>
+    <!-- <script src="src/calculator.js"></script> -->
+    <script>mocha.setup('bdd')</script>
+    <!-- <script src="test/calculator.spec.js"></script>
+    <script src="test/index.spec.js"></script> -->
+    <script>
+        mocha.run();
+    </script>
     <script src="js/script_conditional_operators.js"></script>
     <script src="js/script_array.js"></script>
     <script src="js/script_cycle.js"></script>
     <script src="js/script_func.js"></script>
+    <script src="tests/script_conditional_operators.test.js"></script>
+    <script src="tests/script_array.test.js"></script>
+    <script src="tests/script_cycle.test.js"></script>
+    <script src="tests/script_func.test.js"></script>
 </body>
 </html>
 
