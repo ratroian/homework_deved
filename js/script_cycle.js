@@ -9,16 +9,16 @@ const getSummOfRange = (minValue, maxValue) => {
             quantity = quantity + 1;
         }
     };
-    console.log(quantity,'quantity');
-    console.log(summ,'summ');
+
+    return (`${quantity} quantity,  ${summ} summ`);
 };
 
 const getElementaryNumber = (number) => {
     for (let i = 0; i <= number; i++) {
         if ((number % i) !== 0 && (number % 2) !== 0) {
-            console.log(`${number} простое число`)
+            return `${number} простое число`;
         } else if ((number % i) === 0 && (number % 2) === 0) {
-            console.log(`${number} НЕ простое число`)
+            return `${number} НЕ простое число`;
         };
     };
 };
@@ -28,7 +28,7 @@ const getSquareRoot = (value) => {
     while (provisionalMeaning*provisionalMeaning <= value) {
         provisionalMeaning++;
     };
-    console.log(provisionalMeaning-1);
+    return (provisionalMeaning-1);
 };
 
 const getFactorial= (value) => {
@@ -37,8 +37,9 @@ const getFactorial= (value) => {
         for (let i = 2; i <= value; i++) {
             provisionalMeaning = provisionalMeaning * i;
         }
-    }
-    console.log(provisionalMeaning);
+    };
+
+    return provisionalMeaning;
 }
 
 const getSumNumbers = (value) => {
@@ -50,8 +51,9 @@ const getSumNumbers = (value) => {
         summ = summ + value % 10;
         value = Math.floor(value/10);
         }
-    }
-    console.log(summ);
+    };
+
+    return summ;
 }
 
 const getReversedValue = (value) => {
@@ -59,9 +61,9 @@ const getReversedValue = (value) => {
     while (value) {
         result = result * 10 + value % 10;
         value = Math.floor(value / 10);
-    }
+    };
 
-    console.log(result);
+    return result;
 }
 
 getSummOfRange(1, 99);
