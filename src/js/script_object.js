@@ -5,6 +5,7 @@ const getCookingTime = (eggsAmount) => {
     const maxItemsValue = 5;
     const quantityCycle = Math.ceil(eggsAmount/maxItemsValue);
     result = timeValue * quantityCycle;
+    
     return result;
 };
 console.log(getCookingTime(12))
