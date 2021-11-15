@@ -52,14 +52,14 @@ console.log(findTitle(testArr3, 'js'));
 console.log('---countCharacters---');
 
 const countCharacters = (string) => {
-    const arrayFromString = string.split('');
+    const arrayFromString = string.split(' ').join('').split('');
     let result = {};
     arrayFromString.forEach(item => {
         result[item] = (arrayFromString.filter(element => element === item).length);
     })
 
     return result    
-}
+};
 console.log(countCharacters('development by creating an account on GitHub'));
 console.log('---getNextPalindrome---')
 
@@ -78,11 +78,11 @@ const getNextPalindrome = (number) => {
     } else {
         return minPalindrome;
     };
-}
+};
 console.log(getNextPalindrome(9));
 console.log('---set---');
 
-const set = (array) => {
+const getSet = (array) => {
     let userSet = [];
     array.forEach((item) => {
         !userSet.includes(item) ? userSet.push(item) : true;
@@ -95,7 +95,7 @@ const set = (array) => {
         if (!Object.values(userSet).includes(value)) {
         userSet[value] = value;
         } else {
-        return '${value} already in Set';
+        return `${value} already in Set`;
         }
     };
     userSet.has = (value) => {
@@ -105,12 +105,15 @@ const set = (array) => {
         if (Object.values(userSet).includes(value)) {
         delete userSet[value];
         } else {
-        return '${value} does not in Set';
+        return `${value} does not in Set`;
         }
     };
     return userSet;
 }
 
-const newSet = set([1, 2, 3, 4, 5, 6, 7, 8, 9]);
+
+const newSet = getSet([1, 2, 3, 4, 5, 6, 7, 8, 9]);
 newSet.add(10);
 console.log(newSet, newSet.has(10), newSet.remove(10), newSet);
+console.log(getSet([1, 2, 3, 4, 5, 6, 7, 8, 9]).has(3));
+
