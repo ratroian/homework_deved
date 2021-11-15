@@ -7,7 +7,7 @@ const getMathResult = (firstValue, secondValue) => {
     } else {
         result = firstValue+secondValue;
     };
-    console.log(result)
+    return result;
 };
 
 const getQuarterPoint = (x, y) => {
@@ -26,7 +26,7 @@ const getQuarterPoint = (x, y) => {
             quarterPoint = '4 quarter';
             break;
     }
-    console.log(quarterPoint);
+    return quarterPoint;
 };
 
 const getSumm = (firstValue, secondValue, thirdValue) => {
@@ -35,7 +35,7 @@ const getSumm = (firstValue, secondValue, thirdValue) => {
     (secondValue > 0) ? result = result + secondValue : result;
     (thirdValue > 0) ? result = result + thirdValue : result;
 
-    console.log(result);
+    return result;
 }
 
 const calculateNumbers = (firstValue, secondValue, thirdValue) => {
@@ -47,10 +47,12 @@ const calculateNumbers = (firstValue, secondValue, thirdValue) => {
     } else {
         result = secondExample + 3;
     };
-    console.log(result)
+
+    return result;
 };
 
 const getRating = (rating) => {
+    let studentRating;
     const maxRatingF = 19;
     const maxRatingE = 39;
     const maxRatingD = 59;
@@ -59,26 +61,28 @@ const getRating = (rating) => {
     const maxRatingA = 100;
     switch (true) {
         case (rating <= maxRatingF && rating >= 0):
-            console.log('Оценка F');
+            studentRating = 'Оценка F';
             break;
         case (rating > maxRatingF && rating <= maxRatingE):
-            console.log('Оценка E');
+            studentRating = 'Оценка E';
             break;
         case (rating > maxRatingE && rating <= maxRatingD):
-            console.log('Оценка D');
+            studentRating = 'Оценка D';
             break;
         case (rating > maxRatingD && rating <= maxRatingC):
-            console.log('Оценка C');
+            studentRating = 'Оценка C';
             break;
         case (rating > maxRatingC && rating <= maxRatingB):
-            console.log('Оценка B');
+            studentRating = 'Оценка B';
             break;
         case (rating > maxRatingB && rating <= maxRatingA):
-            console.log('Оценка A');
+            studentRating = 'Оценка A';
             break;
         default: 
-        console.log('Error')
+        studentRating = 'Error';
     };
+    
+    return studentRating;
 };
 
 getMathResult(3, 4);

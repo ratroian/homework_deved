@@ -7,8 +7,9 @@ const getMinElement = (array) => {
             minElement = array[i];
         }
     }
-    console.log(minElement);
-}
+
+    return minElement;
+};
 
 const getMaxElement = (array) => {
     let maxElement = array[0];
@@ -17,21 +18,21 @@ const getMaxElement = (array) => {
             maxElement = array[i];
         }
     }
-    console.log(maxElement);
-}
+    return maxElement;
+};
 
 const getMinIndexElement = (array) => {
     let minElement = array[0];
     let minIndexElement = 0;
     for (let i = 1; i <= array.length; i++) {
-        if (array[i] > minElement) {
+        if (array[i] < minElement) {
             minIndexElement = i;
             minElement = array[i];
-
         }
     }
-    console.log(minIndexElement);
-}
+
+    return minIndexElement;
+};
 
 const getMaxIndexElement = (array) => {
     let maxElement = array[0];
@@ -40,11 +41,11 @@ const getMaxIndexElement = (array) => {
         if (array[i] > maxElement) {
             maxIndexElement = i;
             maxElement = array[i];
-
         }
     }
-    console.log(maxIndexElement);
-}
+
+    return maxIndexElement;
+};
 
 const getSumNoPairIndex = (array) => {
     let sumPairIndex = 0;
@@ -53,9 +54,10 @@ const getSumNoPairIndex = (array) => {
         if (i % 2 !== 0) {
             sumPairIndex = sumPairIndex + array[i];
         }
-    }
-    console.log(`Summ ${sumPairIndex}`);
-}
+    };
+
+    return `Summ ${sumPairIndex}`;
+};
 
 const getQuantityNoPairIndex = (array) => {
     let quantityPairIndex = 0;
@@ -64,9 +66,10 @@ const getQuantityNoPairIndex = (array) => {
         if (i % 2 !== 0) {
             quantityPairIndex = quantityPairIndex + 1;
         }
-    }
-    console.log(`quantity ${quantityPairIndex}`);
-}
+    };
+
+    return `quantity ${quantityPairIndex}`;
+};
 
 const mixArray = (array) => {
     const halfLength = userArray.length / 2;
@@ -75,9 +78,10 @@ const mixArray = (array) => {
         let currentElement = array[i];
         array[i] = array[div + i];
         array[div + i] = currentElement
-    }
-    console.log(array)
-}
+    };
+
+    return array;
+};
 
 const getBubbleSort = (array) => {
     for (let lengthIn = array.length; lengthIn > 0; lengthIn--) {
@@ -89,8 +93,9 @@ const getBubbleSort = (array) => {
             }
         }
     }
-    console.log(array);
-}
+
+    return array;
+};
 
 const getSelectionSort = (array) => {
     let min;
@@ -104,8 +109,9 @@ const getSelectionSort = (array) => {
         let temp = array[outIterations];
             array[outIterations] = array[min];
             array[min] = temp;
-    }
-    console.log(array);
+    };
+
+    return array;
 };
 
 const getInsertSort = (array) => {
@@ -113,12 +119,13 @@ const getInsertSort = (array) => {
     let value;
     for (let i = 1; i < array.length; i++) {
         value = array[i];
-        for (current = i - 1; current >= 0 && array[current] > value; j--) {
+        for (current = i - 1; current >= 0 && array[current] > value; current--) {
             array[current + 1] = array[current]
         }
         array[current + 1] = value;
-    }
-    console.log(array);
+    };
+
+    return array;
 };
 
 getMinElement(userArray);

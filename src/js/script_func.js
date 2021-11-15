@@ -24,17 +24,17 @@ const getDay = (day) => {
         case 7: 
             dayName = 'Воскресенье'; 
             break;
-        default: 'Неверные данные'
+        default: dayName = 'Неверные данные'
     }
-    console.log(dayName);
+    return dayName;
 };
 
 const getDistance = (firstPointX, firstPointY, secondPointX, secondPointY) => {
     const firstPoint = [firstPointX, firstPointY];
     const secondPoint = [secondPointX, secondPointY];
 
-    let distance = Math.sqrt(Math.pow(firstPoint[1] - firstPoint[0], 2) + Math.pow(secondPoint[1] - secondPoint[0], 2));
-    console.log(distance)
+    const distance = Math.sqrt(Math.pow(firstPoint[1] - firstPoint[0], 2) + Math.pow(secondPoint[1] - secondPoint[0], 2));
+    return distance.toFixed(2);
 };
 
 const getNumberToText = (num) => {
@@ -46,13 +46,13 @@ const getNumberToText = (num) => {
     }
     if (arrNum.length == 3) {
         if (arrNumRes[1] == '1') {
-            str = (getHundreds(arrNumRes[0]) + ' '+ teens(arrNumRes[2]));
+            str = (getHundreds(arrNumRes[0]) + ' '+ getTeens(arrNumRes[2]));
         } else {
             str = (getHundreds(arrNumRes[0]) + ' '+ getDecades(arrNumRes[1]) + ' ' + getUnits(arrNumRes[2]));
         }
     } else if (arrNum.length == 2) {
         if (arrNumRes[0] == '1') {
-            str = (teens(arrNumRes[1]));
+            str = (getTeens(arrNumRes[1]));
         } else {
             str = (getDecades(arrNumRes[0]) + ' ' + getUnits(arrNumRes[1]));
         }
@@ -65,7 +65,7 @@ const getNumberToText = (num) => {
     } else {
         str = 'Что-то пошло не так!';
     }
-    console.log(str);
+    return str;
 };
 
 const getHundreds = (num) => {
@@ -188,25 +188,3 @@ getDistance(-1, 3, 6, 2);
 getNumberToText(123);
 
 console.log('---end home work---');
-
-// const userArrayCW = [1, 2, 3, 4, 5, 6, 7, 8, 9];
-// const chunks = 2;
-
-// const getChunksOfArray = (array, chunks) => {
-//     const chunksQuantity = Math.ceil(array.length / chunks);
-//     const newArray = new Array(chunksQuantity);
-//     for (let i = 0; i < chunksQuantity; i++) {
-//         newArray[i] = [];
-//         console.log(newArray[i])
-//     };
-//     let additionalCount = 0;
-//     for (let i = 0; i < array.length; i++) {
-//         if (i !== 0 && i % chunks === 0) {
-//             additionalCount++;
-//         }
-//         newArray[additionalCount].push(array[i]);
-//     };
-//     console.log (newArray);
-// };
-
-// getChunksOfArray(userArrayCW, chunks)
