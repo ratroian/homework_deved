@@ -67,9 +67,25 @@ describe ('Working objects' , () => {
         });
     });
     describe('Create a Set data structure using an object, create add, remove, has methods.', () => {
-        // const newSet = mySet([1, 3, 2]);
         it('transfer - 5, new set', () => {
-            expect(getSet.add([1, 3, 2])).to.equal('4 already in Set');
+            expect(getSet([1, 3, 3, 3, 2])).to.eql({ '1': 1,
+                '2': 3,
+                '3': 2,
+                add: [],
+                has: [],
+                remove: [] });
+        });
+        it('transfer - 3, add', () => {
+            expect(getSet([1, 3, 3, 3, 2]).add(3)).to.equal('3 already in Set');
+        });
+        it('transfer - 4, add', () => {
+            expect(getSet([1, 3, 3, 3, 2]).add(4)).to.equal();
+        });
+        it('transfer - 4, has', () => {
+            expect(getSet(([1, 3, 3, 3, 2 , 4])).has(4)).to.equal(true);
+        });
+        it('transfer - 3, remove', () => {
+            expect(getSet(([1, 3, 3, 3, 2 , 4])).remove(3)).to.equal(undefined);
         });
     });
 });

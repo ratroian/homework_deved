@@ -111,49 +111,9 @@ const getSet = (array) => {
     return userSet;
 }
 
+
 const newSet = getSet([1, 2, 3, 4, 5, 6, 7, 8, 9]);
 newSet.add(10);
 console.log(newSet, newSet.has(10), newSet.remove(10), newSet);
+console.log(getSet([1, 2, 3, 4, 5, 6, 7, 8, 9]).has(3));
 
-
-// function mySet(array) {
-//   let setName = [];
-
-//   array.forEach((item) => {
-//     !setName.includes(item) ? setName.push(item) : true;
-//   });
-//   setName = setName.reduce((acc, item, index) => {
-//     acc[index + 1] = item;
-//     return acc;
-//   }, {});
-
-//   setName.add = function (value) {
-//     if (!Object.values(setName).includes(value)) {
-//       setName[value] = value;
-//     } else {
-//       return "${value} already in Set";
-//     }
-//   };
-
-//   setName.has = function (value) {
-//     return Object.values(setName).includes(value);
-//   };
-
-//   setName.remove = function (value) {
-//     if (Object.values(setName).includes(value)) {
-//       delete setName[value];
-//     } else {
-//       return "${value} does not in Set";
-//     }
-//   };
-//   return setName;
-// }
-
-// const newSet = mySet([
-//   1, 3, 2, 2, 5, 76, 8, 5, 3, 6, 2, 6, 23, 41, 7, 34, 23, 364, 23, 5236,
-// ]);
-// newSet.add(222);
-// console.log("-> newSet", newSet);
-// console.log("-> newSet.has(222)", newSet.has(222));
-// console.log("-> newSet.remove(222)", newSet.remove(222));
-// console.log("-> newSet", newSet);
