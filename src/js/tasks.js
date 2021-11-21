@@ -180,9 +180,8 @@ const cachingDecorator = (func, hash) => {
     };
 }
 
-function hash(args) {
-    return args[0] + ',' + args[1];
-}
+const hash = (args) => args[0] + ',' + args[1];
+
 
 sumObject.getSum = cachingDecorator(sumObject.getSum, hash);
 
