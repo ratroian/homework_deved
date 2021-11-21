@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="./css/style.css">
+    <link href="https://cdn.rawgit.com/mochajs/mocha/2.2.5/mocha.css" rel="stylesheet" />
     <title>Список задач</title>
 </head>
 <body>
@@ -21,7 +22,7 @@
 
 <template id="list-item-template">
     <li class="list-item">
-        <p class="content"></p>
+        <p class="content">123</p>
         <button type="button" class="todo-button-priority button todo-add" id="priority">Важная задача</button>
         <button type="button" class="todo-button-edit button todo-add" id="edit">Редактировать</button>
         <button type="button" class="todo-button-remove button todo-add" id="remove">Удалить</button>
@@ -29,7 +30,21 @@
     </li>
 </template>
 
-<script src="./js/script.js"></script>
+<div id="mocha"></div>
+<div id="messages"></div>
+<div id="fixtures"></div>
+<script src="https://cdn.rawgit.com/Automattic/expect.js/0.3.1/index.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Faker/2.2.2/faker.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mocha/8.0.1/mocha.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/chai/1.4.1/chai.js"></script>
+<script>mocha.setup('bdd')</script>
+<!--<script src="test/index.spec.js"></script> &ndash;&gt;-->
+<script>
+    mocha.run();
+</script>
 <script src="./js/tasks.js"></script>
+<!--<script src="./tests/script_tasks.test.js"></script>-->
+<script src="./js/script.js"></script>
+<script src="./tests/tasks_test.js"></script>
 </body>
 </html>

@@ -69,9 +69,10 @@ const getSum = (firstValue, secondValue) => {
         }
         return sumInIndex;
     });
-    if (+reverseFirstArray[reverseFirstArray.length - 1] + +reverseSecondArray[reverseSecondArray.length - 1 ]>9) {
+    if ((+reverseFirstArray[reverseFirstArray.length - 1] + +reverseSecondArray[reverseSecondArray.length - 1 ])>9) {
         result[result.length-1] = `1${result[result.length-1]}`;
     }
+
     return result.reverse().join('')
 }
 console.log(getSum('999999', '333333'));
@@ -154,7 +155,7 @@ const getQuantityPostsByAuthor = (listOfPosts, author) => {
             })
         };
     };
-    console.log(posts, comments)
+    return `Posts ${posts}, comments ${comments}`
 }
 getQuantityPostsByAuthor(listOfPosts2, 'Uncle')
 
