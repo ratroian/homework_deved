@@ -1,9 +1,10 @@
+import '../styles/style.css';
 
 const imagesContainer = document.querySelector('.images-list');
 const imageTemplate = document.querySelector('#image-template').content;
 const popupTemplate = document.querySelector('#popup-template').content;
-const fullImage = popupTemplate.querySelector('.image-full');
-const titleImage = popupTemplate.querySelector('.title')
+// const fullImage = popupTemplate.querySelector('.image-full');
+// const titleImage = popupTemplate.querySelector('.title')
 const body = document.querySelector('body');
 const pages = document.querySelector('.pages')
 const API = 'https://jsonplaceholder.typicode.com/photos?_limit=250';
@@ -51,8 +52,17 @@ const isEscEvent = (evt) => evt.key === 'Escape' || evt.key === 'Esc';
 
 const makePagination = (event) => {
     let target = event.target;
-    let page = +target.textContent
-    renderList(IMAGES.slice(quantityItems* (page-1), quantityItems* (page-1) + quantityItems))
+    let page = +target.textContent;
+    console.log(target.textContent)
+    if(Number(page)) {
+        renderList(IMAGES.slice(quantityItems* (page-1), quantityItems* (page-1) + quantityItems))
+    } else if (target.textContent == 'forward') {
+        renderList(IMAGES.slice(quantityItems* (+target.textContent+1), quantityItems* (+target.textContent+1) + quantityItems))
+        console.log('13434')
+    } else if (target == '<') {
+        renderList(IMAGES.slice(quantityItems* page, quantityItems* (page-1) + quantityItems))
+    }
+
 };
 
 const messageDeleteHandler = () => {
@@ -73,7 +83,6 @@ const createPopup = (event) => {
 const showPopup = (image) => {
     let target = image.target;
     if (target.classList.contains('images-list')) {
-
         return;
     }
     popupElement = popupTemplate.cloneNode(true);
