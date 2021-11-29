@@ -7,6 +7,7 @@ const titleImage = popupTemplate.querySelector('.title')
 const body = document.querySelector('body');
 const pages = document.querySelector('.pages')
 const API = 'https://jsonplaceholder.typicode.com/photos?_limit=250';
+const quantityItems = 50;
 let IMAGES = [];
 let popupElement;
 
@@ -24,10 +25,8 @@ const getData = () => {
             console.log(IMAGES)
             return IMAGES
         })
-        // .then()
         .catch((error) => console.log(error));
-}
-
+};
 
 const renderList = (items) => {
     imagesContainer.innerHTML = '';
@@ -35,51 +34,56 @@ const renderList = (items) => {
         const itemTemplate = imageTemplate.cloneNode(true);
         itemTemplate.querySelector('.image').src = item.thumbnailUrl;
         itemTemplate.querySelector('.image').dataset.id = item.id;
-        // console.log(itemT.querySelector('.image'))
-        // itemT.querySelector('.image-full').src = item.url;
         imagesContainer.appendChild(itemTemplate)
-    })
-}
-
-const quantutyItems = 50;
-
-getData().then(() => renderList(IMAGES.slice(0, quantutyItems)));
-
-const getPagination = (event) => {
-    let target = event.target;
-    let page = +target.textContent
-    renderList(IMAGES.slice(quantutyItems* (page-1), quantutyItems* (page-1) + quantutyItems))
-}
-
-pages.addEventListener('click', getPagination)
-
-const showPopup = (event) => {
-    let target = event.target;
-    const idItem = +target.dataset.id;
-    const url = IMAGES.find((item) => item.id === idItem)
-    console.log(url)
-    // console.log(target.dataset.id)
-    popupElement = popupTemplate.cloneNode(true);
-    popupElement.querySelector('.image-full').src = url.url;
-    //
-    body.appendChild(popupElement);
-
-    // body.addEventListener('click', messageDeleteHandler, {once: true});
-
-    // body.addEventListener('keydown', onPopupEscKeydown);
+    });
 };
 
-imagesContainer.addEventListener('click', showPopup)
+getData().then(() => renderList(IMAGES.slice(0, quantityItems)));
 
-// const messageDeleteHandler = () => {
-//     popupElement.remove();
-// };
-
-// const onPopupEscKeydown = (evt) => {
-//     if (isEscEvent(evt)) {
-//         messageDeleteHandler();
-//         body.removeEventListener('keydown', onPopupEscKeydown);
-//     }
-// };
+const onPopupEscKeydown = (evt) => {
+    if (isEscEvent(evt)) {
+        messageDeleteHandler();
+        body.removeEventListener('keydown', onPopupEscKeydown);
+    }
+};
 
 const isEscEvent = (evt) => evt.key === 'Escape' || evt.key === 'Esc';
+
+const makePagination = (event) => {
+    let target = event.target;
+    let page = +target.textContent
+    renderList(IMAGES.slice(quantityItems* (page-1), quantityItems* (page-1) + quantityItems))
+};
+
+const messageDeleteHandler = () => {
+    const newPopup = document.querySelector('.wrapper-full');
+    newPopup.remove();
+    window.removeEventListener('keydown', onPopupEscKeydown)
+};
+
+const createPopup = (event) => {
+    let target = event.target;
+    const idItem = +target.dataset.id;
+    const urlImage = IMAGES.find((item) => item.id === idItem);
+    popupElement.querySelector('.image-full').src = urlImage.url;
+
+    return popupElement
+ };
+
+const showPopup = (image) => {
+    let target = image.target;
+    if (target.classList.contains('images-list')) {
+
+        return;
+    }
+    popupElement = popupTemplate.cloneNode(true);
+    createPopup(image);
+    body.appendChild(popupElement);
+    const newPopup = document.querySelector('.wrapper-full');
+    newPopup.addEventListener('click', messageDeleteHandler);
+    window.addEventListener('keydown', onPopupEscKeydown);
+};
+
+imagesContainer.addEventListener('click', showPopup);
+
+pages.addEventListener('click', makePagination)
