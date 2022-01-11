@@ -1,0 +1,18 @@
+module.exports = {
+  UNIVERSITY: '/university',
+  UNIVERSITIES_LIST: '/universities',
+  CREATE_TEACHER: '/create-teacher',
+  TEACHERS_LIST: '/teachers-list',
+  COURSE: '/cource',
+  COURCES_LIST: '/cources-list',
+  CREATE_STUDENT: '/create-student',
+  DELETE_STUDENT: '/delete-student',
+  STUDENTS_LIST_UNIVERSITY: '/students-list/university',
+  STUDENTS_LIST_COURSE: '/students-list/course',
+  RAITING: '/raiting',
+  UNIVERSITY_RAITING: '/university-raiting',
+  STUDENT_COURSE: '/student-course',
+  COURSE_STUDENT: '/course-student',
+  STUDENT: '/student',
+  MARK: '/mark',
+};
