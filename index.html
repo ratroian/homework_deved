@@ -2,27 +2,12 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>UniversitiesList</title>
-    <link rel="stylesheet" href="./styles/style.css">
+    <title>Title</title>
 </head>
 <body>
-    <ul id="menu" class="menu"></ul>
-    <script type="text/template" id="university-template">
-        <li class="menu-item">
-            <div class="menu-item__title">
-                <span class="university-id">{{university-id}}</span>
-                <h1 class="university-name">{{university-name}}</h1>
-            </div>
-            <ul class="students"></ul>
-        </li>
-    </script>
-    <script type="text/template" id="students-template">
-        <li class="students-item">
-            <div class="students-item__id">{{student-id}}</div>
-            <div class="students-item__name">{{student-name}}</div>
-            <div class="students-item__rating">{{student-rating}}</div>
-        </li>
-    </script>
-    <script src="./scripts/create-university.script.js"></script>
+<input type="text" placeholder="name" id="name">
+<input type="text" placeholder="email" id="email">
+<button id="button" style="width: 100px; height: 20px" onclick="createUserRequest()">create user</button>
+<script src="./scripts/create-user.script.js"></script>
 </body>
 </html>
