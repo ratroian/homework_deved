@@ -1,10 +1,10 @@
 const URL = require('url');
 
 const {
-  GET_GERMANY_DATA, GET_FRANCE_DATA, GET_ITALY_DATA, GET_AUSTRIA_DATA,
+  GET_POLAND_DATA, GET_FRANCE_DATA, GET_AUSTRIA_DATA,
 } = require('../constants/routes');
 const {
-  getGermanyData, getFranceData, getItalyData, getAustriaData,
+  getPolandData, getFranceData, getAustriaData,
 } = require('../requests/data.requests');
 
 const router = async ({ req, res }) => {
@@ -13,14 +13,11 @@ const router = async ({ req, res }) => {
   const { query, pathname } = URL.parse(url, true);
 
   switch (true) {
-    case method === 'GET' && pathname === GET_GERMANY_DATA:
-      ({ result, error } = await getGermanyData(query));
+    case method === 'GET' && pathname === GET_POLAND_DATA:
+      ({ result, error } = await getPolandData(query));
       break;
     case method === 'GET' && pathname === GET_FRANCE_DATA:
       ({ result, error } = await getFranceData(query));
-      break;
-    case method === 'GET' && pathname === GET_ITALY_DATA:
-      ({ result, error } = await getItalyData(query));
       break;
     case method === 'GET' && pathname === GET_AUSTRIA_DATA:
       ({ result, error } = await getAustriaData(query));
